@@ -1,0 +1,15 @@
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+h1 {
+    color: #333;
+}
+.proyecto {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
