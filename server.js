@@ -1,21 +1,17 @@
-// Importamos Express
-const express = require("express");
-
-// Creamos la aplicación
+const express = require('express');
+const path = require('path');
 const app = express();
+const port = 3000;
 
-// Definimos el puerto
-const PORT = 3000;
-
-// Servimos los archivos estáticos desde "public"
-app.use(express.static("public"));
+// Servir archivos estáticos desde la carpeta public
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Ruta principal
-app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Iniciamos el servidor
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+// Iniciar el servidor
+app.listen(port, () => {
+    console.log(`Servidor corriendo en http://localhost:${port}`);
 });

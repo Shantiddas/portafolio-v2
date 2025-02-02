@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.proyecto {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Modo Oscuro */
+body.bg-dark {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+body.bg-dark h1, body.bg-dark h2 {
+    color: #f4f4f4;
+}
+
+body.bg-dark .navbar {
+    background-color: #222 !important;
+}
+
+body.bg-dark .card {
+    background-color: #444;
+    color: #f4f4f4;
+}
+
+body.bg-dark .form-control {
+    background-color: #555;
+    color: #f4f4f4;
+    border-color: #666;
+}
+
+body.bg-dark .btn-outline-light {
+    border-color: #f4f4f4;
+    color: #f4f4f4;
+}
+
+body.bg-dark .btn-outline-light:hover {
+    background-color: #f4f4f4;
+    color: #333;
+}
