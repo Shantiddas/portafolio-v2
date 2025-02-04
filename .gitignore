@@ -1,0 +1,9 @@
+# Evitar archivos sensibles
+.env
+config.php
+database.sqlite
+.htaccess
+
+# Evitar carpetas generadas
+node_modules/
+vendor/
