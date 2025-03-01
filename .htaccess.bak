@@ -1,0 +1,29 @@
+# Proteger archivos sensibles como .env y .git
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Prohibir acceso a carpetas sensibles del proyecto
+<Directory "/auth">
+    Require all denied
+</Directory>
+<Directory "/sql">
+    Require all denied
+</Directory>
+
+# Evitar listado de directorios
+Options -Indexes
+
+# Añadir caché para archivos estáticos (mejora rendimiento)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+</IfModule>
+
+# Definir archivo index predeterminado
+DirectoryIndex index.html index.php

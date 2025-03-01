@@ -1,34 +1,123 @@
-/* Estilos generales para la página */
-body {
-    font-family: Arial, sans-serif;
+/* Variables de colores para modo claro/oscuro (root) */
+:root {
+  --bg-color: #fff; /* Fondo blanco (modo claro) */
+  --text-color: #000; /* Texto negro (modo claro) */
+  --card-bg: #f8f9fa; /* Fondo de tarjetas (modo claro) */
+  --primary-color: #007bff; /* Color primario para botones, etc. */
 }
 
-/* Sección de Proyectos */
-#proyectos .card {
-    margin-bottom: 20px;
+.dark-mode {
+  --bg-color: #333; /* Fondo gris oscuro (modo oscuro) */
+  --text-color: #fff; /* Texto blanco (modo oscuro) */
+  --card-bg: #495057; /* Fondo de tarjetas (modo oscuro) */
+  --primary-color: #007bff; /* Mantiene el color primario en ambos modos */
 }
 
-#proyectos img {
-    max-height: 200px;
-    object-fit: cover;
+/* Estilos globales para body, header, footer, y containers */
+body, header, footer, .container {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease; /* Cambio suave entre modos */
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Sección de Registro */
-#registro form {
-    background-color: #f9f9f9;
+h1, h2, .card-title {
+  font-weight: bold;
+  color: #fff;
 }
 
-#registro input, #registro button {
-    margin-bottom: 10px;
+/* Estilo del header y logo */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
 }
 
-/* Pie de página */
-footer {
-    background-color: #343a40;
-    color: white;
+.header-container img {
+  height: 40px;
+  border-radius: 50%; /* Logo redondeado */
+  margin-right: 20px;
 }
 
-footer .btn-outline-light {
-    border-color: #fff;
-    color: white;
+/* Estilos para proyectos (cards) */
+.card {
+  background-color: var(--card-bg);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Efecto de zoom suave al pasar el ratón */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-text {
+  flex-grow: 1;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #5a6268;
+}
+
+/* Estilos responsivos para móviles y tablets */
+@media (max-width: 768px) {
+  .container {
+      padding: 10px;
+  }
+
+  .header-container {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .header-container img {
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+
+  .navbar-nav.ms-auto {
+      margin-left: 0 !important;
+  }
+
+  .card {
+      margin-bottom: 15px;
+  }
+
+  .btn-primary, .btn-secondary {
+      width: 100%;
+  }
+}
+
+/* Estilos para el footer */
+footer a {
+  margin: 0 5px;
 }

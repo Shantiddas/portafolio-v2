@@ -1,62 +1,40 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // === Validación del formulario ===
-    let form = document.getElementById("contactoForm");
+// Verifica que los botones existan antes de añadir eventos
+const lightButton = document.getElementById('btn-light');
+const darkButton = document.getElementById('btn-dark');
 
-    if (form) {
-        form.addEventListener("submit", function (event) {
-            if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            form.classList.add("was-validated");
-        });
+if (lightButton && darkButton) {
+    lightButton.addEventListener('click', () => {
+        document.documentElement.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light'); // Guarda el modo en localStorage
+    });
+
+    darkButton.addEventListener('click', () => {
+        document.documentElement.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark'); // Guarda el modo en localStorage
+    });
+
+    // Carga el modo guardado al iniciar
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
     }
+} else {
+    console.log('Botones no encontrados. Revisa index.html.');
+}
 
-    // === Animación de aparición en scroll ===
-    let secciones = document.querySelectorAll(".fade-in");
+// Validación del formulario de registro
+const form = document.getElementById('registroForm');
+if (form) {
+    form.addEventListener('submit', (e) => {
+        const email = document.querySelector('input[name="email"]').value;
+        const password = document.querySelector('input[name="password"]').value;
+        const nombre = document.querySelector('input[name="nombre"]').value;
 
-    function mostrarSecciones() {
-        secciones.forEach(function (seccion) {
-            let posicion = seccion.getBoundingClientRect().top;
-            let alturaPantalla = window.innerHeight;
-
-            if (posicion < alturaPantalla - 100) {
-                seccion.classList.add("show");
-            }
-        });
-    }
-
-    if (secciones.length > 0) {
-        window.addEventListener("scroll", mostrarSecciones);
-        mostrarSecciones(); // Para mostrar las secciones visibles al cargar
-    }
-
-    // === Botón de modo oscuro ===
-    let modoOscuroBtn = document.getElementById("modoOscuro");
-
-    if (modoOscuroBtn) {
-        modoOscuroBtn.addEventListener("click", function () {
-            document.body.classList.toggle("bg-dark");
-            document.body.classList.toggle("text-white");
-
-            let navbar = document.querySelector(".navbar");
-            if (navbar) {
-                navbar.classList.toggle("navbar-dark");
-                navbar.classList.toggle("bg-dark");
-                navbar.classList.toggle("navbar-light");
-                navbar.classList.toggle("bg-light");
-            }
-
-            // Cambio de texto y estilo del botón
-            if (document.body.classList.contains("bg-dark")) {
-                modoOscuroBtn.textContent = "☀️ Modo Claro";
-                modoOscuroBtn.classList.remove("btn-outline-light");
-                modoOscuroBtn.classList.add("btn-outline-dark");
-            } else {
-                modoOscuroBtn.textContent = "🌙 Modo Oscuro";
-                modoOscuroBtn.classList.remove("btn-outline-dark");
-                modoOscuroBtn.classList.add("btn-outline-light");
-            }
-        });
-    }
-});
+        if (!email.includes('@') || password.length < 8 || nombre.trim() === '') {
+            e.preventDefault();
+            alert('Por favor, corrige los errores:\n- El email debe incluir "@".\n- La contraseña debe tener al menos 8 caracteres.\n- El nombre no puede estar vacío.');
+        }
+    });
+} else {
+    console.log('Formulario no encontrado. Revisa index.html.');
+}
