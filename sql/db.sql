@@ -1,6 +1,6 @@
-CREATE DATABASE portafolio-shantiddas;
+CREATE DATABASE portafolio_shantiddas;
 
-USE portafolio-shantiddas;
+USE portafolio_shantiddas;
 
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,

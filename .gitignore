@@ -10,5 +10,6 @@ vendor/
 
 # Evitar carpetas con datos sensibles
 auth/
-sql/
+# Evitar carpetas con datos sensibles, pero permitir db.sql
+sql/!db.sql
 node_modules/

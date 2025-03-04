@@ -17,34 +17,71 @@
 body, header, footer, .container {
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: all 0.3s ease; /* Cambio suave entre modos */
-  font-family: 'Poppins', sans-serif;
-}
-
-h1, h2, .card-title {
-  font-weight: bold;
-  color: #fff;
-}
-
-/* Estilo del header y logo */
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
-}
-
-.header-container img {
-  height: 40px;
-  border-radius: 50%; /* Logo redondeado */
-  margin-right: 20px;
-}
-
-/* Estilos para proyectos (cards) */
-.card {
-  background-color: var(--card-bg);
-  border: none;
   transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem; /* Tamaño de fuente más grande */
+  line-height: 1.8; /* Más espacio entre líneas */
+}
+header * {
+  background-color: transparent !important;
+}
+
+header h1 {
+  font-size: 3.5rem; /* Título más grande en el encabezado */
+  font-weight: 700;
+  letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+h2 {
+  font-size: 2.5rem; /* Títulos de sección más grandes */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem; /* Más espacio debajo */
+}
+header .lead {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  font-weight: 400; /* Peso más ligero */
+}
+.logo-header {
+  position: relative;
+  left: -20px; /* Mueve el logo más a la izquierda */
+  top: -20px; /* Mueve el logo más arriba */
+}
+
+.btn-xs {
+  padding: 2px 6px; /* Tamaño mucho más pequeño para los botones */
+  font-size: 0.75rem; /* Texto más pequeño */
+}
+section {
+  padding: 60px 0; /* Más espaciado vertical */
+  margin-bottom: 40px; /* Más espacio entre secciones */
+}
+
+#sobre-mi {
+  background: linear-gradient(135deg, #f9f9f9, #e8e8e8);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#proyectos {
+  background-color: #fafafa; /* Fondo suave para los proyectos */
+  border-radius: 15px;
+}
+
+#registro {
+  background: linear-gradient(135deg, #f9f9f9, #e8e8e8);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.navbar-nav .nav-link {
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
 }
 
 .card:hover {
@@ -55,6 +92,9 @@ h1, h2, .card-title {
 .card-img-top {
   object-fit: cover;
   height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 .card-body {
@@ -88,24 +128,36 @@ h1, h2, .card-title {
   border-color: #5a6268;
 }
 
+/* Estilos para el formulario de registro */
+#registroForm {
+  background: linear-gradient(135deg, #e8f0fe, #ffffff);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#registroForm .btn-primary {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+#registroForm .btn-primary:hover {
+  background: linear-gradient(135deg, #0056b3, #003d82);
+}
 /* Estilos responsivos para móviles y tablets */
 @media (max-width: 768px) {
   .container {
-      padding: 10px;
+      padding: 15px;
   }
 
-  .header-container {
+  .navbar-nav {
+      display: flex;
       flex-direction: column;
-      text-align: center;
+      align-items: center;
   }
 
-  .header-container img {
-      margin-right: 0;
-      margin-bottom: 10px;
-  }
-
-  .navbar-nav.ms-auto {
-      margin-left: 0 !important;
+  .navbar-nav .nav-item {
+      margin: 5px 0;
   }
 
   .card {
@@ -118,6 +170,16 @@ h1, h2, .card-title {
 }
 
 /* Estilos para el footer */
+footer {
+  background: linear-gradient(135deg, #1a2525, #2c3e50);
+}
+
 footer a {
   margin: 0 5px;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  color: #FFD700; /* Amarillo dorado al pasar el ratón */
 }
