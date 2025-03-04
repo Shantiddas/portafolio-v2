@@ -3,20 +3,32 @@ const lightButton = document.getElementById('btn-light');
 const darkButton = document.getElementById('btn-dark');
 
 if (lightButton && darkButton) {
+    // Función para actualizar el estado activo de los botones
+    function setActiveButton(button) {
+        lightButton.classList.remove('active');
+        darkButton.classList.remove('active');
+        button.classList.add('active');
+    }
+
     lightButton.addEventListener('click', () => {
         document.documentElement.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light'); // Guarda el modo en localStorage
+        localStorage.setItem('theme', 'light');
+        setActiveButton(lightButton);
     });
 
     darkButton.addEventListener('click', () => {
         document.documentElement.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark'); // Guarda el modo en localStorage
+        localStorage.setItem('theme', 'dark');
+        setActiveButton(darkButton);
     });
 
     // Carga el modo guardado al iniciar
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         document.documentElement.classList.add('dark-mode');
+        setActiveButton(darkButton);
+    } else {
+        setActiveButton(lightButton);
     }
 } else {
     console.log('Botones no encontrados. Revisa index.html.');

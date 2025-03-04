@@ -1,80 +1,127 @@
-/* Variables de colores para modo claro/oscuro (root) */
+/* Variables de colores para modo claro/oscuro */
 :root {
-  --bg-color: #fff; /* Fondo blanco (modo claro) */
-  --text-color: #000; /* Texto negro (modo claro) */
-  --card-bg: #f8f9fa; /* Fondo de tarjetas (modo claro) */
-  --primary-color: #007bff; /* Color primario para botones, etc. */
+  --bg-color: #FFF4E6; /* Fondo durazno claro */
+  --bg-gradient: linear-gradient(135deg, #FFF4E6, #FFEDE0); /* Degradado durazno */
+  --card-bg: #fffafa; /* Fondo de tarjetas */
+  --primary-color: #FF8C61; /* Coral para botones */
+  --secondary-color: #FF7043; /* Coral más oscuro */
+  --header-primary: #FF6F61; /* Naranja para el header */
+  --header-secondary: #FFD700; /* Amarillo para el header */
+  --section-bg: linear-gradient(135deg, #FFEFE6, #FFF7F0); /* Fondo para secciones */
 }
 
 .dark-mode {
-  --bg-color: #333; /* Fondo gris oscuro (modo oscuro) */
-  --text-color: #fff; /* Texto blanco (modo oscuro) */
-  --card-bg: #495057; /* Fondo de tarjetas (modo oscuro) */
-  --primary-color: #007bff; /* Mantiene el color primario en ambos modos */
+  --bg-color: #2c1e1a;
+  --bg-gradient: linear-gradient(135deg, #2c1e1a, #4a3a33);
+  --card-bg: #4a3a33;
+  --primary-color: #FF8C61;
+  --secondary-color: #FF7043;
+  --header-primary: #FF6F61;
+  --header-secondary: #FFD700;
+  --section-bg: linear-gradient(135deg, #2c1e1a, #4a3a33);
 }
 
-/* Estilos globales para body, header, footer, y containers */
+/* Estilos globales */
 body, header, footer, .container {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background: var(--bg-gradient);
+  color: #333;
   transition: all 0.3s ease;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.1rem; /* Tamaño de fuente más grande */
-  line-height: 1.8; /* Más espacio entre líneas */
+  font-size: 1rem;
+  line-height: 1.6;
 }
-header * {
-  background-color: transparent !important;
+
+h1, h2, h5 {
+  font-family: 'Futura', sans-serif;
+}
+
+/* Estilos para el header */
+header {
+  background: linear-gradient(135deg, var(--header-primary), var(--header-secondary));
+  position: relative;
+}
+
+header .container, header .lead {
+  background: transparent;
+}
+
+header .row {
+  align-items: flex-start; /* Alinear elementos al inicio para ajustar la posición vertical */
 }
 
 header h1 {
-  font-size: 3.5rem; /* Título más grande en el encabezado */
-  font-weight: 700;
-  letter-spacing: 1px; /* Espaciado entre letras */
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff; /* Asegurar que el texto sea blanco */
+  margin-bottom: 15px;
 }
 
-h2 {
-  font-size: 2.5rem; /* Títulos de sección más grandes */
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-bottom: 1.5rem; /* Más espacio debajo */
-}
 header .lead {
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1.6;
-  font-weight: 400; /* Peso más ligero */
+  font-weight: 400;
+  color: #fff; /* Asegurar que el texto sea blanco */
+  max-width: 90%; /* Ajustar el ancho para que no sea demasiado ancho */
 }
+
+header .header-content {
+  margin-left: 20px; /* Mover el título y la descripción más a la izquierda */
+}
+
 .logo-header {
-  position: relative;
-  left: -20px; /* Mueve el logo más a la izquierda */
-  top: -20px; /* Mueve el logo más arriba */
+  height: 200px; /* Tamaño del logo */
+  display: block;
+  margin-left: 20px; /* Mover el logo más a la izquierda */
+  margin-top: -20px; /* Mover el logo más arriba */
+}
+
+.logo-sobre-mi {
+  height: 120px;
+  display: block;
+  margin: 0 auto;
 }
 
 .btn-xs {
-  padding: 2px 6px; /* Tamaño mucho más pequeño para los botones */
-  font-size: 0.75rem; /* Texto más pequeño */
-}
-section {
-  padding: 60px 0; /* Más espaciado vertical */
-  margin-bottom: 40px; /* Más espacio entre secciones */
-}
-
-#sobre-mi {
-  background: linear-gradient(135deg, #f9f9f9, #e8e8e8);
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  border: 1px solid #ddd; /* Añadir borde para contraste */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
-#proyectos {
-  background-color: #fafafa; /* Fondo suave para los proyectos */
-  border-radius: 15px;
+.btn-light {
+  background-color: #fff; /* Fondo blanco sólido */
+  color: #333; /* Texto gris oscuro */
 }
 
-#registro {
-  background: linear-gradient(135deg, #f9f9f9, #e8e8e8);
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.btn-dark {
+  background-color: #333; /* Fondo gris oscuro */
+  color: #fff; /* Texto blanco */
 }
+
+.btn-xs:hover {
+  background-color: #f0f0f0;
+}
+
+.btn-xs.active {
+  border: 2px solid #fff; /* Borde más grueso cuando está activo */
+}
+
+/* Estilos para el navbar */
+.navbar {
+  background: transparent !important;
+  margin-top: 30px; /* Más espacio debajo del título/descripción */
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+}
+
 .navbar-nav .nav-link {
+  font-size: 1.2rem;
+  color: #fff;
   padding: 10px 20px;
   transition: background-color 0.3s ease;
 }
@@ -84,70 +131,138 @@ section {
   border-radius: 5px;
 }
 
-.card:hover {
-  transform: scale(1.05); /* Efecto de zoom suave al pasar el ratón */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+/* Estilos para secciones */
+section {
+  padding: 40px 0;
+  margin-bottom: 20px;
 }
 
-.card-img-top {
+#sobre-mi, #proyectos, #testimonios, #registro, #contacto {
+  background: var(--section-bg);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para Sobre Mí */
+.sobre-mi-text {
+  font-style: italic; /* Texto en cursiva */
+}
+
+.sobre-mi-text .lead {
+  font-size: 1.1rem;
+}
+
+/* Estilos para tarjetas */
+.card {
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card .card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding-top: 75%; /* Relación de aspecto 4:3 */
+}
+
+.project-card .card-img-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  height: 200px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .card-img-top {
+  transform: scale(1.05);
 }
 
 .card-body {
   display: flex;
   flex-direction: column;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .card-text {
   flex-grow: 1;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
 }
 
-.btn-secondary {
-  background-color: #6c757d;
-  border-color: #6c757d;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.btn-secondary:hover {
-  background-color: #5a6268;
-  border-color: #5a6268;
-}
-
-/* Estilos para el formulario de registro */
-#registroForm {
-  background: linear-gradient(135deg, #e8f0fe, #ffffff);
+/* Estilos para formularios */
+#registroForm, #contactoForm {
+  background: linear-gradient(135deg, #fff8f5, #fff1eb);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-#registroForm .btn-primary {
-  background: linear-gradient(135deg, #007bff, #0056b3);
+#registroForm .btn-primary, #contactoForm .btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   border: none;
   transition: all 0.3s ease;
 }
 
-#registroForm .btn-primary:hover {
-  background: linear-gradient(135deg, #0056b3, #003d82);
+#registroForm .btn-primary:hover, #contactoForm .btn-primary:hover {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
 }
-/* Estilos responsivos para móviles y tablets */
+
+/* Estilos responsivos */
 @media (max-width: 768px) {
   .container {
       padding: 15px;
+  }
+
+  header h1 {
+      font-size: 1.5rem;
+  }
+
+  header .lead {
+      font-size: 0.9rem;
+  }
+
+  .logo-header {
+      height: 150px; /* Tamaño más pequeño para móviles */
+      margin-left: 10px; /* Ajustar para móviles */
+      margin-top: -10px;
+  }
+
+  .header-content {
+      margin-left: 10px; /* Menos margen en móviles */
+  }
+
+  .logo-sobre-mi {
+      height: 100px;
+  }
+
+  .navbar {
+      margin-top: 20px;
   }
 
   .navbar-nav {
@@ -164,14 +279,18 @@ section {
       margin-bottom: 15px;
   }
 
-  .btn-primary, .btn-secondary {
+  .btn-primary {
       width: 100%;
+  }
+
+  section {
+      padding: 30px 0;
   }
 }
 
 /* Estilos para el footer */
 footer {
-  background: linear-gradient(135deg, #1a2525, #2c3e50);
+  background: linear-gradient(135deg, #2c1e1a, #4a3a33);
 }
 
 footer a {
@@ -181,5 +300,5 @@ footer a {
 }
 
 footer a:hover {
-  color: #FFD700; /* Amarillo dorado al pasar el ratón */
+  color: var(--secondary-color);
 }
