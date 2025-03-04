@@ -11,3 +11,4 @@ vendor/
 # Evitar carpetas con datos sensibles
 auth/
 sql/
+node_modules/
