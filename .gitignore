@@ -1,15 +1,14 @@
 # Evitar archivos sensibles
-.env
-config.php
-database.sqlite
-.htaccess
+env/
+config/
+base_datos.sqlite
 
-# Evitar carpetas generadas
-node_modules/
-vendor/
+# Htaccess
+.htaccess
 
 # Evitar carpetas con datos sensibles
 auth/
-# Evitar carpetas con datos sensibles, pero permitir db.sql
-sql/!db.sql
+sql/
+
+# Evitar node_modules
 node_modules/
